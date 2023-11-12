@@ -69,4 +69,4 @@ function compartilharWhatsApp() {
 }
 
 // Adiciona um ouvinte de evento ao botão
-document.getElementById('whatsappShareButton').addEventListener('click', shareOnWhatsApp);
+document.getElementById('whatsappShareButton').addEventListener('click', compartilharWhatsApp);
