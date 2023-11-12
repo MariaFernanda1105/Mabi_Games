@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Definição do conjunto de caracteres e configuração de visualização -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título da página -->
+    <title>Snake Game</title>
+
+    <!-- Importação da fonte Material Symbols Outlined do Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <!-- Importação do arquivo de estilo CSS personalizado -->
+    <link rel="stylesheet" href="./CSS/style.css">
+</head>
+
+<body>
+    <!-- Título principal da página -->
+    <h1>Snake Game</h1>
+
+    <!-- Seção de pontuação do jogo -->
+    <div class="score">Pontos: <span class="score--value">00</span> </div>
+
+    <!-- Tela de menu do jogo (inicialmente oculta) -->
+    <div class="menu--screen">
+        <!-- Mensagem de "Game Over" -->
+        <span class="game--over">Game Over!</span>
+
+        <!-- Exibição da pontuação final -->
+        <span class="final--score">Pontos: <span>00</span> </span>
+
+        <!-- Botão para jogar novamente -->
+        <button class="btn--play">
+            <!-- Ícone do Material Symbols Outlined -->
+            <span class="material-symbols-outlined">
+                play_circle
+            </span>
+            Jogar novamente
+        </button>
+    </div>
+
+    <!-- Elemento canvas para o jogo com largura e altura definidas -->
+    <canvas width="600" height="600"></canvas>
+
+    <!-- Importação do arquivo de script JavaScript -->
+    <script src="./JavaScript/script.js"></script>
+</body>
+
+</html>

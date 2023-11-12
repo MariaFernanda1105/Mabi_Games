@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Definindo a codificação de caracteres -->
+    <meta charset="UTF-8">
+    <!-- Especificando a compatibilidade com o Internet Explorer -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Configurando a exibição para dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título da página -->
+    <title>Memory Game with JavaScript</title>
+    <!-- Ligando o arquivo de estilo CSS -->
+    <link rel="stylesheet" href="./CSS/style.css">
+</head>
+<body>
+    <!-- Estrutura principal do jogo -->
+    <div class="game">
+        <!-- Controles do jogo -->
+        <div class="controls">
+            <!-- Botão para iniciar o jogo -->
+            <button>Start</button>
+            <!-- Estatísticas do jogo -->
+            <div class="stats">
+                <!-- Número de movimentos -->
+                <div class="moves">0 moves</div>
+                <!-- Contador de tempo -->
+                <div class="timer">Time: 0 sec</div>
+            </div>
+        </div>
+        <!-- Container do tabuleiro de jogo -->
+        <div class="board-container">
+            <!-- Elemento que representa o tabuleiro de jogo -->
+            <div class="board" data-dimension="4"></div>
+            <!-- Mensagem de vitória -->
+            <div class="win">You won!</div>
+        </div>
+    </div>
+
+       <!-- Incluindo o script JavaScript-->
+       <script src="./JavaScript/script.js"></script>
+</body>
+</html>

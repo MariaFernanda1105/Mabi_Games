@@ -1,0 +1,177 @@
+<!DOCTYPE html> <!--Iniciando o código-->
+
+<html lang="pt-BR"> <!--Define a linguagem em que o código se encontra-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="CSS_pagina_teste.css"> <!--Dando o link para o HTML buscar o css da página-->
+  <title>Mabi Games</title>
+
+</head>
+
+<body class="body">
+  <header>
+    <nav class="dp-menu"> <!--Aqui nós iremos iniciar a barra de navegação do site príncipal-->
+
+      <ul> <!--Aqui estamos declarando uma lista-->
+        <a href="./Pagina_teste.html">
+          <img class="imagem_site" src="./Imagens/_7aeb366d-6678-4616-8718-8be2c0bfd5e0.jpg" height="40"
+            alt="Imagem identidade do site" title="Mabi Games">
+        </a>
+        <li> <!--Primeiro elemento da lista-->
+          <a href="#">Nossos jogos</a>
+          <ul> <!--Resto da lista, que ficará escondida até que o usuário passe o mouse por cima do primeiro elemento-->
+            <li><a href="./Mario Jump/Index.html">Mario Jump</a></li>
+            <li><a href="./snake Game/Index.html">Snake Game</a></li>
+            <li><a href="./Jogo da Memória/Index.html">Jogo da Memória</a></li>
+            <li><a href="GumokuDesc.html">Gomoku</a></li>
+            <li><a href="QuebraCabecaDesc.html">Quebra Cabeça</a></li>
+          </ul>
+        </li>
+
+        <img class="imagem_login" id="imagem_user" src="./Imagens/entrar-avatar.png" height="35" alt="Imagem do usuário"
+          title="Imagem do usuário">
+        <li id="login_page"><a href="#">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <aside class="anuncios">
+    <div class="imageSlider active">
+      <img id="imageSlider" src="./Imagens/anunciopocker.jpg" alt="Pocker">
+    </div>
+    <div class="imageSlider active">
+      <img id="imageSlider" src="./Imagens/catgameanuncio.jpg" alt="Cat Game">
+    </div>
+    <div class="imageSlider active">
+      <img id="imageSlider" src="./Imagens/xboxgamesanuncio.jpg" alt="Xbox Game Pass">
+    </div>
+  </aside>
+
+  <aside class="jogos">
+    
+  </aside>
+
+  <!-- Div do formulário de login -->
+  <div class="LoginPopup" id="loginPopup">
+    <!-- Cabeçalho do formulário -->
+    <div class="header_form">
+      <div class="singup_form">Sing up</div>
+    </div>
+    <!-- Seta indicando a posição do formulário -->
+    <div class="arrow"></div>
+    <!-- Formulário de login -->
+    <form action="" class="formulario" id="loginForm">
+      <!-- Campo de Nickname -->
+      <div class="formar_elemento">
+        <label for="Nick_input">
+          <input type="text" id="Nick_input" name="nickname_input" placeholder="Nickname" />
+        </label>
+      </div>
+      <!-- Campo de E-mail -->
+      <div class="formar_elemento">
+        <label for="Email_input">
+          <input type="text" id="Email_input" name="email_input" placeholder="E-mail" />
+        </label>
+      </div>
+      <!-- Campo de Senha -->
+      <div class="formar_elemento">
+        <label for="Senha_input">
+          <input type="password" id="Senha_input" name="senha_input" placeholder="Senha" />
+        </label>
+      </div>
+      <!-- Campo de Confirmar Senha -->
+      <div class="formar_elemento">
+        <label for="Confirmar_Senha_input">
+          <input type="password" id="Confirmar_Senha_input" name="senha_input" placeholder="Confirme a senha" />
+        </label>
+      </div>
+      <!-- Campo de Data de Nascimento -->
+      <div class="formar_elemento">
+        <label for="Data_input">
+          <input type="date" id="Data_input" name="data_input" placeholder="Data de Nascimento" />
+        </label>
+      </div>
+      <!-- Botão de Envio -->
+      <div class="formar_elemento">
+        <button id="Enviar_btn">Login</button>
+      </div>
+    </form>
+  </div>
+
+
+ <!--Aqui nós iremos iniciar as colunas do site príncipal, dando a ele o local onde os jogos irão estar -->
+
+  <div class="container">
+    <div class="column-1"> <!--Primeira DIV declarada com a classe de "Column 1" -->
+      <a href="./snake Game/Index.html">
+        <h3>Snake Game</h3>
+        <img src="./Imagens/snake.png" width="150">
+      </a>
+    </div>
+
+    <div class="column-2"> <!--Segunda DIV declarada com a classe de "Column 2" -->
+      <a href="./Mario Jump/Index.html">
+        <h3>Mario Jump</h3>
+        <img src="./Imagens/Paper-Mario-icon.png" width="150">
+      </a>
+    </div>
+
+    <div class="column-3"> <!--Terceira DIV declarada com a classe de "Column 3" -->
+      <a href="./Jogo da Memória/Index.html">
+        <h3>Jogo da Memória</h3>
+        <img src="./Imagens/brain.png" width="150">
+      </a>
+    </div>
+
+    <div class="column-4"> <!--Quarta DIV declarada com a classe de "Column 4" -->
+      <a href="./Mario Jump/Index.html">
+        <h3>Se esquecer lascou!</h3>
+        <img src="./Imagens/brain.png" width="150">
+      </a>
+    </div>
+
+    <div class="column-5"> <!--Quinta DIV declarada com a classe de "Column 5" -->
+      <a href="#">
+        <h3>Se esquecer lascou!</h3>
+        <img src="./Imagens/brain.png" width="150">
+      </a>
+    </div>
+
+    <div class="column-6"> <!--Sexta DIV declarada com a classe de "Column 6" -->
+      <a href="#">
+        <h3>Se esquecer lascou!</h3>
+        <img src="./Imagens/brain.png" width="150">
+      </a>
+    </div>
+  </div>
+
+    <!-- Rodapé -->
+    <footer class="rodape" id="rodape">
+        <div class="redes-sociais">
+            <a href="#" target="_blank"><img src="./Imagens/github-logo.png" alt="GitHub" title="GitHub de Maria Fernanda"></a>
+            <a href="#" target="_blank"><img src="./Imagens/github-logo.png" alt="GitHub" title="GitHub de Bianca"></a>
+            <a href="#" target="_blank"><img src="./Imagens/instagramPNG.webp" alt="Instagram" title="Instagram de Maria Fernanda"></a>
+            <a href="#" target="_blank"><img src="./Imagens/instagramPNG.webp" alt="Instagram de Bianca" title="Instagram de Bianca"></a>
+        </div>
+        
+        <div class="criadores">
+            <p>Criado por: Maria Fernanda Gomes<br>
+              Bianca Rodrigues
+            </p>
+        </div>
+
+        <div class="atribuicoes">
+            <p>Atribuições de Imagens: Foto do usuário: <a href="https://www.flaticon.com/br/icones-gratis/login-de-administrador" title="login de administrador ícones">Login de administrador ícones criados por tuktukdesign - Flaticon</a></p>
+            <p>Atribuições de Imagens: Snake Game: <a href="https://www.flaticon.com/free-icons/board-game" title="board game icons">Board game icons criados por Freepik - Flaticon</a></p>
+            <p>Atribuições de Imagens: GitHub Logo: <a href="https://www.flaticon.com/free-icons/cat" title="GitHub icons">Cat icons criados por Dave Gandy - Flaticon</a></p>
+            <p>Atribuições de Imagens: Cérebro: <a href="https://www.flaticon.com/br/icones-gratis/cerebro" title="cérebro ícones">Cérebro ícones criados por max.icons - Flaticon</a></p>
+          </div>
+    </footer>
+
+  <script src="./JavaScript/script.js"></script>
+</body>
+
+</html> <!--Fim do código-->
