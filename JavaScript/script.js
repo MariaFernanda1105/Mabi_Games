@@ -56,3 +56,17 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+function compartilharWhatsApp() {
+    const texto = encodeURIComponent("Venha olhar essa página que eu fiz!");
+    const url = encodeURIComponent(window.location.href);
+
+    // Cria o link de compartilhamento do WhatsApp
+    const whatsappLink = `https://api.whatsapp.com/send?text=${texto}%20${url}`;
+
+    // Abre o link no WhatsApp em uma nova janela ou guia
+    window.open(whatsappLink, '_blank');
+}
+
+// Adiciona um ouvinte de evento ao botão
+document.getElementById('whatsappShareButton').addEventListener('click', shareOnWhatsApp);
