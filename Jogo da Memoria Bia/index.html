@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="joogo da memoria">
+    <title>jogo da memoria</title>
+    <style>
+    /* Estilos gerais para o corpo da página */
+    body {
+        font-family: sans-serif;
+        background-color: #f5f5f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    /* Estilos para as cartas do jogo */
+    .card {
+        width: 15vw;
+        height: 15vw;
+        max-width: 100px;
+        max-height: 100px;
+        background-color: purple;
+        margin: 2vw;
+        text-align: center;
+        font-size: 5vw;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        color: #fff;
+        position: relative;
+    }
+
+    /* Estilos para o conteúdo da carta (quando virada) */
+    .card .card-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* Estilos para as cartas viradas */
+    .card.flipped .card-content {
+        opacity: 1;
+    }
+
+    /* Estilos para o fundo das cartas viradas */
+    .card.flipped {
+        background-color: #fff;
+        color: #000;
+        pointer-events: none;
+    }
+
+    /* Estilos para o tabuleiro do jogo */
+    #game-board {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        max-width: 600px;
+    }
+    </style>
+</head>
+<body>
+    <div id="game-board"></div>
+    <script>
+        // Array com as letras para o jogo de memória
+        const cardsArray = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F'];
+
+        // Arrays para acompanhar as cartas escolhidas, seus IDs e cartas ganhas
+        let cardsChosen = [];
+        let cardsChosenId = [];
+        let cardsWon = [];
+
+        // Função para criar o tabuleiro do jogo
+        function createBoard() {
+            const gameBoard = document.getElementById('game-board');
+            cardsArray.sort(() => 0.5 - Math.random());
+
+            for (let i = 0; i < cardsArray.length; i++) {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.setAttribute('data-id', i);
+
+                const cardContent = document.createElement('div');
+                cardContent.className = 'card-content';
+                cardContent.textContent = cardsArray[i];
+                card.appendChild(cardContent);
+
+                card.addEventListener('click', flipCard);
+                gameBoard.appendChild(card);
+            }
+        }
+
+        // Função para verificar se as cartas escolhidas formam um par
+        function checkForMatch() {
+            const cards = document.querySelectorAll('.card');
+            const [id1, id2] = cardsChosenId;
+
+            if (cardsChosen[0] === cardsChosen[1] && id1 !== id2) {
+                alert('Par encontrado!');
+                cards[id1].classList.add('flipped');
+                cards[id2].classList.add('flipped');
+                cards[id1].style.pointerEvents = 'none';
+                cards[id2].style.pointerEvents = 'none';
+                cardsWon.push(cardsChosen);
+            } else {
+                setTimeout(() => {
+                    cards[id1].classList.remove('flipped');
+                    cards[id2].classList.remove('flipped');
+                }, 1000);
+                alert('Tente novamente.');
+            }
+
+            cardsChosen = [];
+            cardsChosenId = [];
+
+            if (cardsWon.length === cardsArray.length / 2) {
+                alert('Parabéns! Você encontrou todos os pares!');
+            }
+        }
+
+        // Função para virar a carta e verificar se há um par
+        function flipCard() {
+            if (cardsChosen.length === 2) {
+                return; // Evita que mais de 2 cartas sejam viradas de uma vez
+            }
+
+            const cardId = this.getAttribute('data-id');
+            cardsChosen.push(cardsArray[cardId]);
+            cardsChosenId.push(cardId);
+            this.classList.add('flipped');
+
+            if (cardsChosen.length === 2) {
+                setTimeout(checkForMatch, 500);
+            }
+        }
+
+        // Inicializa o tabuleiro do jogo
+        createBoard();
+    </script>
+</body>
+</html>

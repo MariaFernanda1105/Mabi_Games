@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Adivinhação</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+    /* Estilos gerais para o corpo da página */
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    /* Estilos para a div que contém o jogo */
+    #game-container {
+        text-align: center;
+    }
+
+    /* Estilos para o título principal */
+    h1 {
+        color: #4CAF50;
+    }
+
+    /* Estilos para os botões */
+    button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    /* Estilos para o hover (quando o mouse passa por cima) dos botões */
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+
+<body>
+    <div id="game-container">
+        <h1>Jogo de Adivinhação</h1>
+        <p>Tente adivinhar o número entre 1 e 100:</p>
+        <input type="number" id="guess">
+        <button id="guessButton">Enviar Palpite</button>
+        <button id="restart">Reiniciar</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        // Gera um número aleatório entre 1 e 100
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+        // Obtém elementos do DOM
+        const guessField = document.getElementById('guess');
+        const guessButton = document.getElementById('guessButton');
+        const restartButton = document.getElementById('restart');
+        const message = document.getElementById('message');
+
+        // Contador de tentativas
+        let attempts = 0;
+
+        // Limite de tentativas
+        const maxAttempts = 10;
+
+        // Adiciona ouvintes de eventos
+        guessButton.addEventListener('click', checkGuess);
+        restartButton.addEventListener('click', restartGame);
+        guessField.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                checkGuess();
+            }
+        });
+
+        // Função para verificar o palpite
+        function checkGuess() {
+            const userGuess = parseInt(guessField.value);
+            attempts++;
+
+            if (userGuess < 1 || userGuess > 100) {
+                message.textContent = 'Digite um número válido entre 1 e 100.';
+                message.style.color = 'red';
+                return;
+            }
+
+            if (userGuess === randomNumber) {
+                message.textContent = `Parabéns! Você acertou o número ${randomNumber} em ${attempts} tentativas!`;
+                message.style.color = 'green';
+                disableInput();
+            } else if (attempts < maxAttempts) {
+                if (userGuess < randomNumber) {
+                    message.textContent = 'Tente um número maior.';
+                    message.style.color = 'red';
+                } else {
+                    message.textContent = 'Tente um número menor.';
+                    message.style.color = 'red';
+                }
+            } else {
+                message.textContent = `Você perdeu! O número correto era ${randomNumber}.`;
+                message.style.color = 'red';
+                disableInput();
+            }
+        }
+
+        // Desabilita a entrada após o jogo terminar
+        function disableInput() {
+            guessField.disabled = true;
+            guessButton.disabled = true;
+        }
+
+        // Reinicia o jogo
+        function restartGame() {
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+            attempts = 0;
+            guessField.value = '';
+            message.textContent = '';
+            guessField.disabled = false;
+            guessButton.disabled = false;
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
